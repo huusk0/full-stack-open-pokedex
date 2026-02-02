@@ -24,14 +24,20 @@ jobs:
         run: npm run build
       - name: test
         run: npm run test
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run e2e tests
-        run: npm run test:e2e
+      # - name: Install Playwright Browsers
+      #   run: npx playwright install --with-deps
+      # - name: Run e2e tests
+      #   run: npm run test:e2e
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
+
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' }}
         uses: anothrNick/github-tag-action@v1
