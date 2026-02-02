@@ -2,6 +2,7 @@ const js = require("@eslint/js");
 const reactPlugin = require("eslint-plugin-react");
 const jestPlugin = require("eslint-plugin-jest");
 const globals = require("globals");
+const { off } = require("process");
 
 // Safe helper to trim global names and handle undefined/null
 function trimGlobals(input) {
@@ -62,6 +63,7 @@ module.exports = [
       "arrow-spacing": ["error", { before: true, after: true }],
       "no-console": "error",
       "react/prop-types": "off",
+      "linebreak-style": "off",
 
       // Jest rules
       ...jestPlugin.configs.recommended.rules,
