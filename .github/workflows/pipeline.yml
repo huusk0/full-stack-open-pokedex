@@ -45,3 +45,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
           NONE_STRING_TOKEN: "#skip"
+      - name: Test Custom
+        uses: rjstone/discord-webhook-notify@v2
+        with:
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Custom Bot Username
+          avatarUrl: https://domain/images/custom.png
+          text: Below this normal-looking message is an embed!
+          severity: info # only to make sure the embed is added
+          color: "#ff00aa"
+          title: My Fancy Embed Title
+          description: "This is a ***SuPeR custom*** description. I hope it looks good."
+          # details: not needed because we overrode default description.
+          footer: This embed was brought to you by the letter R and the number 4.
