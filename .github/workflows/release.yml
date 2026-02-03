@@ -33,4 +33,4 @@ jobs:
           title: By ${{ github.actor }} in ${{ github.repository }}
           description: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
           # details: not needed because we overrode default description
-          footer: This embed was brought to you by the letter R and the number 4.
+          footer: Version ${{ github.event.release.tag_name || github.ref_name }}
