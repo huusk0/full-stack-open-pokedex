@@ -28,9 +28,9 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           username: GitHUB BÖT
           text: New version!
-          severity: info # only to make sure the embed is added
+          severity: info # required so the embed is added
           color: "#00ff00"
-          title: By ${{ GITHUB_ACTOR }} in ${{ GITHUB_REPOSITORY }}
+          title: By ${{ github.actor }} in ${{ github.repository }}
           description: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
-          # details: not needed because we overrode default description.
+          # details: not needed because we overrode default description
           footer: This embed was brought to you by the letter R and the number 4.
